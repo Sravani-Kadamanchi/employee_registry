@@ -9,37 +9,6 @@ export let addEmployee=(object)=>{
 }
 
 // Arrow Function to send Get request to API
-// export let getEmployees=()=>{
-//     return axiosInstance.post("/api/employees/list" ,{});
-// }
-
-// export const getEmployees = async ({
-//   page,
-//   size,
-//   sortField,
-//   sortOrder,
-//   filters
-// }) => {
-//   const params = new URLSearchParams();
-
-//   params.append('pageSize', size);
-//   params.append('pageNumber', page+1);
-//   params.append('sortColumn',sortField);
-//   const sortOrder1= sortOrder === 1 ? 'asc' : 'desc'
-//   params.append('sortOrder',sortOrder1);
-
-//   if (filters) {
-//     Object.keys(filters).forEach((key) => {
-//       if (filters[key]?.value) {
-//         params.append(key, filters[key].value);
-//       }
-//     });
-//   }
-  
-//   return axiosInstance.post(`api/employees/list?${params.toString()}`,{});
-// };
-
-
 export const getEmployees = async ({
   page,
   size,
@@ -95,32 +64,6 @@ export let updateEmployee=(uuid,object)=>{
 }
 
 
-
-
-
-
-
-
-// import axiosInstance from  "./EmployeeAxiosINstance";
-
-// export const addEmployee = (object) => {
-//   return axiosInstance.post("/api/employees", object);
-// };
-
-// export const getEmployees = (pageNumber, pageSize) => {
-//   return axiosInstance.post(
-//     `/api/employees/list?pageNumber=${pageNumber}&pageSize=${pageSize}`,
-//     {}
-//   );
-// };
-
-// export const updateEmployee = (uuid, object) => {
-//   return axiosInstance.patch(`/api/employees/${uuid}`, object);
-// };
-
-// export const deleteEmployee = (uuid) => {
-//   return axiosInstance.delete(`/api/employees/${uuid}`);
-// };
 
 
 
