@@ -1,13 +1,13 @@
 
-import EmployeeRegistry from "./pages/EmployeeRegistry";
-// import 'primereact/resources/themes/lara-light-indigo/theme.css';
-// import 'primereact/resources/primereact.min.css';
-// import 'primeicons/primeicons.css';
+import './App.css'
+import EmployeeRegistry from "./pages/EmployeeRegistry"
 
+function App() {
 
-const App = () => {
   return (
-    <EmployeeRegistry/>
+    <>
+     <EmployeeRegistry/>
+    </>
   )
 }
 
