@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
+import { ConfirmDialog , confirmDialog} from "primereact/confirmdialog";
 import { FilterMatchMode } from "primereact/api";
 import { deleteEmployee, getEmployees, addEmployee, updateEmployee} from "../Service/EmployeeAPI";
 import "../styles/global.css";
@@ -10,6 +11,7 @@ import { Password } from "primereact/password";
 
 
 const EmployeeRegistry = () => {
+  <ConfirmDialog/>
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalRecords, setTotalRecords] = useState(0);
@@ -65,10 +67,27 @@ const fetchEmployees = async (params = lazyParams) => {
     setIsEdit(false);
   };
 
-  const handleDelete = async (uuid) => {
-    await deleteEmployee(uuid);
-    setData((prev) => prev.filter((emp) => emp.uuid !== uuid));
-  };
+//   const handleDelete = async (uuid) => {
+//     await deleteEmployee(uuid);
+//     setData((prev) => prev.filter((emp) => emp.uuid !== uuid));
+//   };
+
+const handleDelete = (uuid) => {
+  confirmDialog({
+    message: "Are you sure you want to delete this employee?",
+    header: "Delete Confirmation",
+    icon: "pi pi-exclamation-triangle",
+    acceptClassName: "p-button-danger",
+    accept: async () => {
+      await deleteEmployee(uuid);
+      setData((prev) => prev.filter((emp) => emp.uuid !== uuid));
+    },
+    reject: () => {
+      // optional: toast or nothing
+    }
+  });
+};
+
 
   const handleAddClick =()=>{
     resetForm();
@@ -130,6 +149,8 @@ const fetchEmployees = async (params = lazyParams) => {
   );
 
   return (
+    <>
+      <ConfirmDialog/>
     <div className="page-container">
       {/* HEADER */}
       <div className="header">
@@ -252,6 +273,7 @@ const fetchEmployees = async (params = lazyParams) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
