@@ -11,7 +11,6 @@ import { Password } from "primereact/password";
 
 
 const EmployeeRegistry = () => {
-  <ConfirmDialog/>
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalRecords, setTotalRecords] = useState(0);
@@ -150,7 +149,7 @@ const handleDelete = (uuid) => {
 
   return (
     <>
-      <ConfirmDialog/>
+    <ConfirmDialog/>
     <div className="page-container">
       {/* HEADER */}
       <div className="header">
