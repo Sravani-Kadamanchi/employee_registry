@@ -116,7 +116,7 @@ const handleDelete = (uuid) => {
             });
         } 
         else {
-                console.log(form)
+                // console.log(form)
                 await addEmployee({
                 empname: form.empname,
                 empemail: form.empemail,
@@ -178,7 +178,7 @@ const handleDelete = (uuid) => {
                     sortField={lazyParams.sortField}   
                     sortOrder={lazyParams.sortOrder}
 
-                    onPage={(e) =>
+              onPage={(e) =>
                 setLazyParams({
                 ...lazyParams,
                 page: e.page,
